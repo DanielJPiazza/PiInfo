@@ -1,0 +1,17 @@
+* {
+    font-family: 'IBM Plex Mono', monospace;
+    background: black;
+    color: white;
+}
+
+body {
+    margin: 16px 0px 0px 16px;
+}
+
+td {
+    padding-right: 24px;
+}
+
+.bold {
+    font-weight: 700;
+}

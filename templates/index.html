@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>PiInfo</title>
+
+		<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+
+	{% if weather %}
+	<body>
+		<table>
+			<tr><td class="bold">Location:</td><td>{{ weather.location }}</td></tr>
+			<tr><td class="bold">Time & Date:</td><td>{{ weather.time }}, {{ weather.date }}</td></tr>
+			<tr><td class="bold">Temperature:</td><td>{{ weather.temp }} F</td></tr> 
+			<tr><td class="bold">Cloud Cover:</td><td>{{ weather.cloudcover }}%</td></tr> 
+			<tr><td class="bold">Conditions:</td><td>{{ weather.conditions }}</td></tr>
+			<tr><td class="bold">Humidity:</td><td>{{ weather.humidity }}%</td></tr>
+			<tr><td class="bold">Wind Speed:</td><td>{{ weather.windspeed }} MPH</td></tr>
+		</table>
+	</body>
+	{% endif %}
+
+	{% if error %}
+	<p>{{ error }}</p>
+	{% endif %}
+
+</html>
