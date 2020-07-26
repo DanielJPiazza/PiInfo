@@ -2,7 +2,7 @@
 import config
 
 # Libraries
-import json, requests, datetime
+import json, requests, datetime, os
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -28,8 +28,9 @@ def get_apis():
     # Parse weather results or determine weather_error message, depending on API response
     if (weather_data["cod"] == 200):
         weather_data_output["location"] = weather_data["name"]
-        weather_data_output["time"] = (datetime.datetime.now()).strftime("%-I:%M%p")     # From server's clock, not API response
-        weather_data_output["date"] = (datetime.datetime.now()).strftime("%a %b %d %Y")  # From server's clock, not API response
+        weather_data_output["time"] = (datetime.datetime.now()).strftime("%#I:%M%p") if os.name == 'nt' \
+                                      else (datetime.datetime.now()).strftime("%-I:%M%p")                   # From server's clock, not API response
+        weather_data_output["date"] = (datetime.datetime.now()).strftime("%a %b %d %Y")                     # From server's clock, not API response
         weather_data_output["temp"] = weather_data["main"]["temp"]
         weather_data_output["cloudcover"] = weather_data["clouds"]["all"]
         weather_data_output["conditions"] = weather_data["weather"][0]["main"] + " (" + weather_data["weather"][0]["description"] + ")"
