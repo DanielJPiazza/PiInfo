@@ -10,16 +10,16 @@
 
 	<body>
 		{% if weather_success %}
-		<table>
-			<tr><td class="bold">Location:</td><td>{{ weather_success.location }}</td></tr>
-			<tr><td class="bold">Time & Date:</td><td>{{ weather_success.time }}, {{ weather_success.date }}</td></tr>
-			<tr><td class="bold">Temperature:</td><td>{{ weather_success.temp }} F</td></tr> 
-			<tr><td class="bold">Cloud Cover:</td><td>{{ weather_success.cloudcover }}%</td></tr> 
-			<tr><td class="bold">Conditions:</td><td>{{ weather_success.conditions }}</td></tr>
-			<tr><td class="bold">Humidity:</td><td>{{ weather_success.humidity }}%</td></tr>
-			<tr><td class="bold">Wind Speed:</td><td>{{ weather_success.windspeed }} MPH</td></tr>
-		</table>
+		<div><span class="bold">Location: </span>{{ weather_success.location }}</div>
+		<div><span class="bold">Time & Date: </span></td>{{ weather_success.time }}, {{ weather_success.date }}</div>
+		<div><span class="bold">Temperature: </span>{{ weather_success.temp }} F</div> 
+		<div><span class="bold">Cloud Cover: </span>{{ weather_success.cloudcover }}%</div>
+		<div><span class="bold">Conditions: </span>{{ weather_success.conditions }}</div>
+		<div><span class="bold">Humidity: </span>{{ weather_success.humidity }}%</div>
+		<div><span class="bold">Wind Speed: </span>{{ weather_success.windspeed }} MPH</div>
 		{% endif %}
+
+		<div class="separator">---</div>
 
 		{% if weather_error %}
 		<p>{{ weather_error }}</p>
@@ -28,7 +28,7 @@
 		{% if news_articles %}
 		<ul>
 			{% for i in range(5) %}
-			<li>{{ news_articles[i] }} (<a href="{{ news_urls[i] }}" target=_blank>link</a>)</li>
+			<li class="articlelink">{{ news_articles[i] }} (<a href="{{ news_urls[i] }}" target=_blank>link</a>)</li>
 			{% endfor %}
 		</ul>
 		{% endif %}

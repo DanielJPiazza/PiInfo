@@ -17,6 +17,18 @@ ul {
     padding-left: 0;
 }
 
+p {
+    margin-bottom: 2px;
+}
+
 .bold {
     font-weight: 700;
+}
+
+.separator {
+    margin: 10px 0px;
+}
+
+.articlelink {
+    margin-bottom: 5px;
 }
