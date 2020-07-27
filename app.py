@@ -19,7 +19,7 @@ def get_apis():
     weather_base_url = "http://api.openweathermap.org/data/2.5/weather?"
     weather_city_id = "5128581" # 5128581 is New York City, US
     weather_units = "imperial" # Kelvin is an empty string (""); celsius is "metric"
-    weather_final_url = weather_base_url + "appid=" + config.weather_api_key + "&id=" + weather_city_id + "&weather_units=" + weather_units
+    weather_final_url = weather_base_url + "appid=" + config.weather_api_key + "&id=" + weather_city_id + "&units=" + weather_units
 
     # Make API call to OpenWeatherMap
     weather_data = (requests.get(weather_final_url)).json()
